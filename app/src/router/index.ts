@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/components/Home.vue';
+import HomeView from "@/components/Home.vue"
 import ReportView from '@/components/Report.vue';
 import Login from '@/components/Login.vue';
 
@@ -10,7 +10,7 @@ const isAuthenticated = () => {
 };
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     { path: '/', name: 'home', component: HomeView, meta: { auth: true } },
     { path: '/report', name: 'report', component: ReportView, meta: { auth: true } },
