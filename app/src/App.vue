@@ -8,14 +8,18 @@
       <v-spacer></v-spacer>
 
       <v-tabs
+        v-model="currentTab"
         color="grey-darken-2"
         centered
       >
         <v-tab
           v-for="link in links"
-          :key="link"
-          :text="link"
-        ></v-tab>
+          :key="link.text"
+          :to="link.route"
+          router
+        >
+          {{ link.text }}
+        </v-tab>
       </v-tabs>
       <v-spacer></v-spacer>
 
@@ -27,16 +31,25 @@
     </v-app-bar>
 
     <v-main class="bg-grey-lighten-3">
-      <Home></Home>
+      <router-view></router-view> <!-- Dynamically renders the current route -->
     </v-main>
   </v-app>
 </template>
 
-
-
 <script setup lang="ts">
-   const links = [
-    'Home',
-    'Report',   
-  ]
+import { ref } from "vue";
+
+// Define the navigation links with corresponding routes
+const links = [
+  { text: "Home", route: "/" },
+  { text: "Report", route: "/report" },
+  
+];
+
+// v-tabs selected model
+const currentTab = ref(0);
 </script>
+
+<style scoped>
+/* Add custom styles if necessary */
+</style>
