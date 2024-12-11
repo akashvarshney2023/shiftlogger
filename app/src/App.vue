@@ -5,6 +5,7 @@
       density="compact"
       flat
     >
+    <v-img src="../src/assets/images/logo.png" style="width:350px;height:54px;"></v-img> 
       <v-spacer></v-spacer>
 
       <v-tabs
@@ -31,6 +32,7 @@
     </v-app-bar>
 
     <v-main class="bg-grey-lighten-3">
+      
       <router-view></router-view> <!-- Dynamically renders the current route -->
     </v-main>
   </v-app>
